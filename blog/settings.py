@@ -25,7 +25,7 @@ SECRET_KEY = '8&+@_bx!ow04(nggz_ib*p@z%a2&a^h)7ms^s!7g1hl7(+u9kc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['alta-vista-watch.herokuapp.com']
 
 
 # Application definition
