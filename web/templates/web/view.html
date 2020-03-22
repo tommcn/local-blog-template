@@ -1,0 +1,28 @@
+{% extends "web/index.html" %}
+
+{% block body %}
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Primary Email Address</th>
+            <th scope="col">Secondary Email Address</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in c%}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.phoneNumber}}</td>
+                <td>{{i.primaryEmail}}</td>
+                <td>{{i.secondaryEmail}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      
+{% endblock %}

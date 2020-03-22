@@ -1,0 +1,3 @@
+#!/Users/tommcn/Documents/Projects/Blog Template/env/bin/python3
+from requirements_detector.run import run
+run()

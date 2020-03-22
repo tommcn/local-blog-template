@@ -1,0 +1,24 @@
+{% extends "web/index.html" %}
+
+{% block body %}
+    <button class="collapsible"><h5>Submit a blog post</h5></button><br>
+        <div class="content">
+            <form action="{% url 'blog' %}" method="post">
+                {% csrf_token %}
+                <input name="email" type="email" placeholder="Primary Email" required/><br>
+                <small><i>Please use the same you used in your contact info</i></small><br>
+                <input name="title" type="text" placeholder="Title" required/><br>
+                <textarea name="content" type="text" placeholder="Content" rows=15px cols=100px required></textarea><br>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>  
+    {% for i in b %}
+        <button class="collapsible"><h3>{{ i.title }} | {{ i.author }}</h3> <i>{{ i.created }}</i></button><br>
+        {% autoescape on %}
+            <div class="content">
+                {{ i.content | linebreaksbr }}
+            </div>  
+        {% endautoescape %}
+    {% endfor %}
+
+{% endblock %}
