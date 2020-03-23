@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 
-from .models import contact, blogPost, dashboardElement
+from .models import contact, blogPost, dashboardElement, siteSetting
 
 
 # Create your views here.
 def index(request):
     if request.user.is_authenticated:
-        return render(request, 'web/home.html')
+        context = {}
+        context["settings"] = getSettings()
+        return render(request, 'web/home.html', context)
     else:
         return render(request, 'web/login.html')
 
@@ -28,6 +30,7 @@ def view(request):
         context = {
             "c": contact.objects.all(),
         }
+        context["settings"] = getSettings()
         return render(request, 'web/view.html', context)
     else:
         return render(request, 'web/login.html')
@@ -36,7 +39,9 @@ def view(request):
 def add(request):
     if request.user.is_authenticated:
         if request.method == 'GET':
-            return render(request, 'web/add.html')
+            context = {}
+            context["settings"] = getSettings()
+            return render(request, 'web/add.html', context)
         else:
             name = request.POST["name"]
             address = request.POST["address"]
@@ -62,6 +67,7 @@ def info(request):
         context = {
             "urls": urls,
         }
+        context["settings"] = getSettings()
         return render(request, 'web/info.html', context)
     else:
         return render(request, 'web/login.html')
@@ -69,6 +75,7 @@ def info(request):
 def blog(request):
     if request.user.is_authenticated:
         context = {}
+        context["settings"] = getSettings()
         if request.method == 'POST':
             email = request.POST["email"]
             title = request.POST["title"]
@@ -90,3 +97,14 @@ def blog(request):
         return render(request, 'web/blog.html', context=context)
     else:
         return render(request, 'web/login.html')
+
+
+
+def getSettings():
+    settings = siteSetting.objects.first()
+    context = {
+        "title": settings.site_title,
+        "banner": settings.info_banner,
+        "color": settings.color
+    }
+    return context

@@ -1,4 +1,6 @@
 from django.db import models
+from colorfield.fields import ColorField
+
 
 
 # Create your models here.
@@ -29,3 +31,9 @@ class dashboardElement(models.Model):
     height = models.SmallIntegerField(default=350)
     is_link = models.BooleanField(default=False)
     is_embed = models.BooleanField(default=True)
+
+class siteSetting(models.Model):
+    site_title = models.CharField(max_length=32, default="Blog")
+    info_banner = models.CharField(max_length=32, default=None, blank=True, null=True)
+    color = ColorField(default='#FF0000')
+

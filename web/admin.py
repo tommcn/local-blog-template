@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group
 
-from .models import contact, blogPost, dashboardElement
+from .models import contact, blogPost, dashboardElement, siteSetting
 
 
 # Register your models here.
@@ -30,6 +30,12 @@ class blogAdmin(admin.ModelAdmin):
     list_display = ('author', 'title', 'created', 'posted')
     actions = [publish, unpublish]
     list_filter = ('posted',)
+
+@admin.register(siteSetting)
+class settingsAdmin(admin.ModelAdmin):
+    search_fields = ['site_title', 'info_banner', 'color']
+    list_display = ('site_title', 'info_banner', 'color')
+
 
 admin.site.unregister(Group)
 

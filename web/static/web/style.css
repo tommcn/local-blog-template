@@ -46,14 +46,14 @@ h1 {
 
 #links a:hover {
     border-radius: 25px;
-    background-color: #86c3fc;
+    background-color: #ffffff;
     padding: 15px;
 }
 
 
 /* Blog Posts CSS */
 .collapsible {
-    background-color: #777;
+    background-color: rgb(94, 94, 94);
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -65,7 +65,7 @@ h1 {
 }
   
 .active, .collapsible:hover {
-    background-color: #555;
+    background-color: #333;
 }
   
 .collapsible:after {
@@ -85,7 +85,7 @@ h1 {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    background-color: #f1f1f1;
-    margin: 5px;
+    background-color: #ffffff;
+    margin: 5px;    
 }
   

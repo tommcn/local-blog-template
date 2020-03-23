@@ -14,7 +14,7 @@
     </head>
     <body>          
         {%if request.user.is_authenticated%}
-            <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav id="navbar" class="navbar navbar-expand-lg navbar-dark" style=background-color:{{settings.color}};>
                 <a class="navbar-brand" href="/">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,14 +30,23 @@
             </nav>
               
 
-            {% if message %}
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                {{message}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+            {% if settings.banner %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{settings.banner}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             {% endif %}
+            {% if message %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+
 
             <div id="page">
                 {% block body %}{%endblock%}
