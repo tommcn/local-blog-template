@@ -1,5 +1,9 @@
 {% extends "web/index.html" %}
 
 {% block body %}
-    <div id="clock"></dic>
+    <div id="clock"></div>
+    <div id="date"></div>
+    {% if settings.landing %}
+        {{ settings.landing | linebreaksbr }}
+    {% endif %}
 {% endblock %}

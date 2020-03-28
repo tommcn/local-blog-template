@@ -35,6 +35,7 @@ class blogAdmin(admin.ModelAdmin):
 class settingsAdmin(admin.ModelAdmin):
     search_fields = ['site_title', 'info_banner', 'color']
     list_display = ('site_title', 'info_banner', 'color')
+    empty_value_display = "Not Set"
 
 
 admin.site.unregister(Group)

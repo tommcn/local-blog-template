@@ -9,7 +9,7 @@ class contact(models.Model):
     name = models.CharField(max_length=128)
     address = models.CharField(max_length=128)
     phoneNumber = models.CharField(max_length=12)
-    primaryEmail = models.CharField(max_length=128)
+    primaryEmail = models.CharField(max_length=128, unique=True)
     secondaryEmail = models.CharField(max_length=128)
 
     def __str__(self):
@@ -36,4 +36,5 @@ class siteSetting(models.Model):
     site_title = models.CharField(max_length=32, default="Blog")
     info_banner = models.CharField(max_length=32, default=None, blank=True, null=True)
     color = ColorField(default='#FF0000')
+    landing_page_text = models.TextField(null=True)
 

@@ -7,9 +7,9 @@
                 {% csrf_token %}
                 <input name="email" type="email" placeholder="Primary Email" required/><br>
                 <small><i>Please use the same you used in your contact info</i></small><br>
-                <input name="title" type="text" placeholder="Title" required/><br>
+                <input name="title" type="text" placeholder="Title" required/><br><br>
                 <textarea name="content" type="text" placeholder="Content" rows=15px cols=100px required></textarea><br>
-                <input type="submit" value="Submit"/>
+                <input type="submit" class="submitbtn" value="Submit"/>
             </form>
         </div>  
     {% for i in b %}

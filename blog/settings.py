@@ -25,7 +25,11 @@ SECRET_KEY = '8&+@_bx!ow04(nggz_ib*p@z%a2&a^h)7ms^s!7g1hl7(+u9kc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['alta-vista-watch.herokuapp.com', '127.0.0.1', 'locals.mcnamer.ca']
+ALLOWED_HOSTS = ['alta-vista-watch.herokuapp.com', '127.0.0.1', 'locals.mcnamer.ca', 'thehood.mcnamer.ca']
+
+# The redirect login url used by @login_required
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#login-url
+LOGIN_URL = 'login/'
 
 
 # Application definition
@@ -38,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'web'
+    'web',
 ]
 
 MIDDLEWARE = [

@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <div style="display: inline-block; margin: 10%; width: 80%; margin-top: 1%;">
+    <div style="display: inline-block; margin: 10%; width: 80%; margin-top: 1%; margin-bottom: 1%;">
         {% for u in urls %}
             {% if u.is_embed %}
                 <iframe src={{u.url}} width={{u.width}} height={{u.height}} style="align-self: center;"></iframe>
