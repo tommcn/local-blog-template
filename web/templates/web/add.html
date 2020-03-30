@@ -1,6 +1,7 @@
 {% extends "web/index.html" %}
 
 {% block body %}
+<h3>Here you can submit your contact information</h3>
     <form action="{% url 'add' %}" method="post" name="contact" onsubmit="return(validateForm())">
         {% csrf_token %}
         <input name="name" type="text" placeholder="Name"/><br><br>
